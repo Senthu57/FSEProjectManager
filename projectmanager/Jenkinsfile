@@ -15,12 +15,12 @@ pipeline {
         }
         stage ('Build') {
             steps {
-                    bat 'mvn install'
+                    bat 'cd projectmanager && mvn mvn install'
             }
         }
         stage ('Docker-Build') {
             steps {
-                    bat 'mvn package docker:build'
+                    bat 'cd projectmanager && mvn package docker:build'
             }
         }
     }
