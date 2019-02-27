@@ -1,0 +1,18 @@
+#start the database in-secure
+#mysqld --initialize-insecure
+
+CREATE DATABASE SYS;
+
+CREATE TABLE tasks (
+	task_id BIGINT(10) NOT NULL AUTO_INCREMENT,
+	task VARCHAR(50) NULL DEFAULT NULL,
+	parent_id BIGINT(10) NULL DEFAULT NULL,
+	start_date VARCHAR(10) NULL DEFAULT NULL,
+	end_date VARCHAR(10) NULL DEFAULT NULL,
+	priority VARCHAR(2) NULL DEFAULT NULL,
+	status VARCHAR(1) NULL DEFAULT NULL,
+	PRIMARY KEY (task_id),
+	CONSTRAINT FK_TASKS FOREIGN KEY (parent_id) REFERENCES tasks (task_id)
+);
+
+
